@@ -3,6 +3,12 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    font-family: "Doto", sans-serif;
+}
+
+h1 {
+    color: black;
+    font-size: 50px;
 }
 
 .grid-item {
@@ -17,5 +23,3 @@ body {
     height: 960px;
     border: 1px solid black;
 }
-
-/* class container id gridContainer*/
