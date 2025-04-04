@@ -8,6 +8,22 @@ let resizeValue = document.getElementById('resizeValue');
 
 let currentMode = 'color';
 
+resizeBtn.addEventListener("click", () => {
+    // Parse input
+    const size = parseInt(resizeValue.value);
+
+    if (isNaN(size)) {
+        alert("Please enter a valid number.");
+    } else if (size > 100) {
+        alert("Number must be <= 100");
+    } else {
+        createGrid(size);
+    }
+
+    resizeValue.value = '';
+    resizeValue.focus();
+});
+
 function createGrid(size) {
     container.innerHTML = '';
 
@@ -56,5 +72,7 @@ resetBtn.addEventListener("click", () => {
         grid.style.backgroundColor = ''; // or 'transparent' or 'white'
     });
 });
+
+
 
 createGrid(16);
