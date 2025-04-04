@@ -1,4 +1,12 @@
 let container = document.getElementById('container');
+let randomColorBtn = document.getElementById('randomColorBtn');
+let resetBtn = document.getElementById('resetBtn');
+let eraseBtn = document.getElementById('eraseBtn');
+let resizeBtn = document.getElementById('resizeBtn');
+
+let resizeValue = document.getElementById('resizeValue');
+
+let currentMode = 'color';
 
 function createGrid(size) {
     container.innerHTML = '';
@@ -27,7 +35,26 @@ function getRandomColor() {
 }
 
 function colorSquare(gridSquare) {
-    gridSquare.style.backgroundColor = getRandomColor();
+    if (currentMode === 'color') {
+        gridSquare.style.backgroundColor = getRandomColor();
+    } else if (currentMode === 'erase') {
+        gridSquare.style.backgroundColor = '';
+    }
 }
+
+eraseBtn.addEventListener("click", () => {
+    currentMode = 'erase';
+});
+
+randomColorBtn.addEventListener("click", () => {
+    currentMode = 'color';
+});
+
+resetBtn.addEventListener("click", () => {
+    const grids = document.querySelectorAll(".grid-item");
+    grids.forEach(grid => {
+        grid.style.backgroundColor = ''; // or 'transparent' or 'white'
+    });
+});
 
 createGrid(16);

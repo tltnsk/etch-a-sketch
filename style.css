@@ -4,6 +4,7 @@ body {
     align-items: center;
     padding: 2rem;
     font-family: "Doto", sans-serif;
+    background-color: #dfcfbe;
 }
 
 h1 {
@@ -13,7 +14,7 @@ h1 {
 
 .grid-item {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid rgb(231, 231, 231);
 }
 
 #container {
@@ -21,5 +22,38 @@ h1 {
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
-    border: 1px solid black;
+    border: 2px solid black;
+}
+
+.buttons {
+    display: flex;
+    width: 960px;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.resize {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100px;
+    background-color: transparent;
+    border: 2px solid rgb(55, 53, 53);
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: antiquewhite;
 }
