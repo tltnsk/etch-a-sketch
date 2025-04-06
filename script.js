@@ -6,6 +6,9 @@ let resizeBtn = document.getElementById('resizeBtn');
 
 let resizeValue = document.getElementById('resizeValue');
 
+let colorPicker = document.getElementById('colorPicker');
+let selectedColor = '#000000';
+
 let currentMode = 'color';
 
 resizeBtn.addEventListener("click", () => {
@@ -27,7 +30,7 @@ resizeBtn.addEventListener("click", () => {
 function createGrid(size) {
     container.innerHTML = '';
 
-    const squareSize = (960 / size) + 'px';
+    const squareSize = (480 / size) + 'px';
 
     for (let i = 0; i < size * size; i++) {
         const gridSquare = document.createElement('div');
@@ -52,9 +55,12 @@ function getRandomColor() {
 
 function colorSquare(gridSquare) {
     if (currentMode === 'color') {
-        gridSquare.style.backgroundColor = getRandomColor();
+        gridSquare.style.backgroundColor = selectedColor;
     } else if (currentMode === 'erase') {
         gridSquare.style.backgroundColor = '';
+    }
+    else if (currentMode === 'random') {
+        gridSquare.style.backgroundColor = getRandomColor();
     }
 }
 
@@ -63,6 +69,11 @@ eraseBtn.addEventListener("click", () => {
 });
 
 randomColorBtn.addEventListener("click", () => {
+    currentMode = 'random';
+});
+
+colorPicker.addEventListener('input', (e) => {
+    selectedColor = e.target.value;
     currentMode = 'color';
 });
 
